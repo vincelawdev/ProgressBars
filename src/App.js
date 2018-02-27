@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { ProgressBar } from './ProgressBar';
 
 class App extends Component {
     state = {
@@ -20,6 +21,7 @@ class App extends Component {
     render() {
         return (
             <div>
+                <ProgressBar percentage={50} />
                 {this.state.bars.map(bar => (<p key={bar.toString()}>Bar: {bar}</p>))}
                 {this.state.buttons.map(button => (<p key={button.toString()}>Button: {button}</p>))}
             </div>

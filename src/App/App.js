@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ProgressBar } from './ProgressBar';
-import { Button } from './Button';
+import { ProgressBar } from '../ProgressBar/index';
+import { Button } from '../Button/index';
 import './App.css';
 
 class App extends Component {

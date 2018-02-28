@@ -5,7 +5,7 @@ import './Dropdown.css';
 const Dropdown = (props) => {
     const {progressBars, callbackParent} = props;
 
-    // update selectedProgressBar in parent component state
+    // update selected progress bar in parent component state
     const dropdownOnChange = (event) => {
         callbackParent(event.target.value);
     };

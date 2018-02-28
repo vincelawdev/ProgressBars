@@ -29,8 +29,25 @@ class App extends Component {
         }
         // progress bar selected
         else {
-            this.setState({selectedProgressBar: parseInt(index)});
+            this.setState({selectedProgressBar: parseInt(index, 10)});
         }
+    };
+
+    updateProgressBarPercentage = (number) => {
+        // no progress bar selected
+        if(this.state.selectedProgressBar === null) {
+            return;
+        }
+
+        // progress bar selected, update new progress bar number
+        const selectedProgressBarIndex = this.state.selectedProgressBar;
+        const selectedProgressBarCurrentNumber = this.state.progressBars[selectedProgressBarIndex];
+        const selectedProgressBarNewNumber = selectedProgressBarCurrentNumber + number;
+
+        // copy progressBars array, manipulate selected progress bar and set new progressBars state
+        let newProgressBars = this.state.progressBars.slice();
+        newProgressBars[selectedProgressBarIndex] = selectedProgressBarNewNumber;
+        this.setState({progressBars: newProgressBars});
     };
 
     render() {
@@ -42,7 +59,7 @@ class App extends Component {
                 <div className="ControlsContainer">
                     <Dropdown progressBars={this.state.progressBars} callbackParent={this.selectProgressBar} />
                     <div className="ButtonList">
-                        {this.state.buttons.map((button, buttonIndex) => (<Button number={button} key={buttonIndex} />))}
+                        {this.state.buttons.map((button, buttonIndex) => (<Button number={button} callbackParent={this.updateProgressBarPercentage} key={buttonIndex} />))}
                     </div>
                 </div>
             </div>

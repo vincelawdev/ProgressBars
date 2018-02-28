@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import './ProgressBar.css';
 
 const ProgressBar = (props) => {
-    const { id, percentage, selected } = props;
+    const { percentage, selected } = props;
     const percentageLabel = percentage < 0 ? 0 : percentage;
     let percentageLine = percentage;
 

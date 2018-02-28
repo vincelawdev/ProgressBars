@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ProgressBar } from '../ProgressBar/index';
-import { Button } from '../Button/index';
+import { ProgressBar } from '../ProgressBar';
+import { Dropdown } from '../Dropdown';
+import { Button } from '../Button';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +22,10 @@ class App extends Component {
             });
     }
 
+    selectProgressBar = (index) => {
+        this.setState({selectedProgressBar: parseInt(index)});
+    };
+
     render() {
         return (
             <div className="AppContainer">
@@ -28,6 +33,7 @@ class App extends Component {
                     {this.state.progressBars.map((progressBar, progressBarIndex) => (<ProgressBar id={progressBarIndex} percentage={progressBar} selected={this.state.selectedProgressBar === progressBarIndex} key={progressBarIndex} />))}
                 </div>
                 <div className="ControlsContainer">
+                    <Dropdown progressBars={this.state.progressBars} callbackParent={this.selectProgressBar} />
                     <div className="ButtonList">
                         {this.state.buttons.map((button, buttonIndex) => (<Button number={button} key={buttonIndex} />))}
                     </div>

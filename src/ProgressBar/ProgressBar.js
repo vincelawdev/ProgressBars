@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import './ProgressBar.css';
 
 const ProgressBar = (props) => {
-    const { percentage, id } = props;
+    const { id, percentage, selected } = props;
     const percentageLabel = percentage < 0 ? 0 : percentage;
     let percentageLine = percentage;
 
@@ -16,11 +16,11 @@ const ProgressBar = (props) => {
         percentageLine = 0;
     }
 
-    const percentageMax = percentageLine === 100 ? true : false;
-
+    // ProgressBar css classes
     const ProgressBarClass = classNames({
         'ProgressBar': true,
-        'max': percentageMax
+        'max': percentageLine === 100 ? true : false,
+        'selected': selected
     });
 
     return (
@@ -34,8 +34,9 @@ const ProgressBar = (props) => {
 };
 
 ProgressBar.propTypes = {
-    id: PropTypes.number,
-    percentage: PropTypes.number
+    id: PropTypes.number.isRequired,
+    percentage: PropTypes.number.isRequired,
+    selected: PropTypes.bool.isRequired
 };
 
 export default ProgressBar;

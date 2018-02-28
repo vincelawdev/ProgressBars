@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import debounce from 'debounce';
 import './Button.css';
 
 const Button = (props) => {
@@ -12,7 +13,7 @@ const Button = (props) => {
     };
 
     return (
-        <button onClick={buttonOnClick}>{numberLabel}</button>
+        <button onClick={debounce(buttonOnClick, 250)}>{numberLabel}</button>
     );
 };
 

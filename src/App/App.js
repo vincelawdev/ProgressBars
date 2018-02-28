@@ -13,6 +13,7 @@ class App extends Component {
     };
 
     componentDidMount() {
+        // populate state
         axios.get('https://frontend-exercise.apps.b.cld.gov.au/bars')
             .then(response => {
                 this.setState({ buttons: response.data.buttons, progressBars: response.data.bars });

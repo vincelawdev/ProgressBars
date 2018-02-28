@@ -23,7 +23,14 @@ class App extends Component {
     }
 
     selectProgressBar = (index) => {
-        this.setState({selectedProgressBar: parseInt(index)});
+        // no progress bar selected
+        if(index === '') {
+            this.setState({selectedProgressBar: null});
+        }
+        // progress bar selected
+        else {
+            this.setState({selectedProgressBar: parseInt(index)});
+        }
     };
 
     render() {

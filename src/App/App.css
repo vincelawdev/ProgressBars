@@ -21,6 +21,13 @@ body {
   display: block;
 }
 
+.ButtonList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .AppContainer {

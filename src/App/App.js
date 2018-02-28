@@ -28,7 +28,9 @@ class App extends Component {
                     {this.state.progressBars.map((progressBar, progressBarIndex) => (<ProgressBar id={progressBarIndex} percentage={progressBar} selected={this.state.selectedProgressBar === progressBarIndex} key={progressBarIndex} />))}
                 </div>
                 <div className="ControlsContainer">
-                    {this.state.buttons.map((button, buttonIndex) => (<Button number={button} key={buttonIndex} />))}
+                    <div className="ButtonList">
+                        {this.state.buttons.map((button, buttonIndex) => (<Button number={button} key={buttonIndex} />))}
+                    </div>
                 </div>
             </div>
         );

@@ -7,13 +7,14 @@ import './App.css';
 class App extends Component {
     state = {
         buttons: [],
-        bars: []
+        progressBars: [],
+        selectedProgressBar: null
     };
 
     componentDidMount() {
         axios.get('https://frontend-exercise.apps.b.cld.gov.au/bars')
             .then(response => {
-                this.setState({ buttons: response.data.buttons, bars: response.data.bars });
+                this.setState({ buttons: response.data.buttons, progressBars: response.data.bars });
             })
             .catch(error => {
                 console.log(error);
@@ -24,7 +25,7 @@ class App extends Component {
         return (
             <div className="AppContainer">
                 <div className="ProgressBarContainer">
-                    {this.state.bars.map((bar, barIndex) => (<ProgressBar id={barIndex} percentage={bar} key={barIndex} />))}
+                    {this.state.progressBars.map((progressBar, progressBarIndex) => (<ProgressBar id={progressBarIndex} percentage={progressBar} key={progressBarIndex} />))}
                 </div>
                 <div className="ControlsContainer">
                     {this.state.buttons.map((button, buttonIndex) => (<Button number={button} key={buttonIndex} />))}

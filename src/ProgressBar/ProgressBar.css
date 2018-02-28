@@ -1,0 +1,54 @@
+.ProgressBar {
+    width: 100%;
+    height: 30px;
+    margin: 0 0 30px 0;
+    padding: 3px;
+    display: block;
+    border-radius: 5px;
+}
+
+.ProgressBar.max .ProgressBarLine {
+    background-color: red;
+}
+
+.ProgressBar.selected {
+    border: 3px solid dodgerblue;
+}
+
+.ProgressBarBackground {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: white;
+}
+
+.ProgressBarPercentage {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+}
+
+.ProgressBarLine {
+    width: 0;
+    height: 100%;
+    float: left;
+    background-color: seagreen;
+    border-radius: 5px;
+    animation: animate-width;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.25s;
+}
+
+@keyframes animate-width {
+    0% {
+        width: 0;
+    }
+    100% {
+        visibility: visible;
+    }
+}

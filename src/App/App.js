@@ -22,12 +22,12 @@ class App extends Component {
 
     render() {
         return (
-            <div className="app-container">
-                <div className="progress-bar-container">
-                    {this.state.bars.map(bar => (<ProgressBar percentage={bar} key={bar.toString()} />))}
+            <div className="AppContainer">
+                <div className="ProgressBarContainer">
+                    {this.state.bars.map((bar, barIndex) => (<ProgressBar id={barIndex} percentage={bar} key={barIndex} />))}
                 </div>
-                <div className="controls-container">
-                    {this.state.buttons.map(button => (<Button number={button} key={button.toString()} />))}
+                <div className="ControlsContainer">
+                    {this.state.buttons.map((button, buttonIndex) => (<Button number={button} key={buttonIndex} />))}
                 </div>
             </div>
         );

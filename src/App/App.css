@@ -1,27 +1,29 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: whitesmoke;
   font-family: Georgia;
 }
 
-.app-container {
+.AppContainer {
   width: 100%;
   margin: 0 auto;
   padding: 50px 20px;
+  box-sizing: border-box;
 }
 
-.progress-bar-container {
+.ProgressBarContainer {
   margin: 0 0 30px 0;
   display: block;
 }
 
-.controls-container {
+.ControlsContainer {
   display: block;
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .app-container {
+  .AppContainer {
     width: 500px;
     padding-left: 0;
     padding-right: 0;
